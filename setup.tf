@@ -37,6 +37,12 @@ resource "okta_oauth_app" "example" {
   groups         = ["${data.okta_group.all.id}"]
 }
 
+resource "okta_trusted_origin" "localhost" {
+  name   = "localhost"
+  origin = "http://localhost:8080"
+  scopes = ["CORS"]
+}
+
 data "template_file" "configuration" {
   template = "${file("templates/dotenv.template")}"
   vars {
