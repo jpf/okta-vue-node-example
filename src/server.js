@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -6,8 +7,8 @@ const epilogue = require('epilogue')
 const OktaJwtVerifier = require('@okta/jwt-verifier')
 
 const oktaJwtVerifier = new OktaJwtVerifier({
-  clientId: '{yourClientId}',
-  issuer: 'https://{yourOktaDomain}/oauth2/default'
+  clientId: process.env.OKTA_CLIENT_ID,
+  issuer: `https://{process.env.OKTA_DOMAIN}/oauth2/default`
 })
 
 let app = express()
