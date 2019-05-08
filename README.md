@@ -22,16 +22,46 @@ To install this example application, run the following commands:
 git clone https://github.com/oktadeveloper/okta-vue-node-example.git
 cd okta-vue-node-example
 npm install
-tf init
 ```
 
-Then, create an API Token in your Okta org, edit `terraform.tfvars`, then run:
+### Install Terraform
+
+This demo makes use of Terraform to automatically configure your Okta org for you.
+
+Make sure that you've done the following before going any further:
+- [Install Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html)
+- [Install Go](https://golang.org/doc/install)
+- [Install the Okta Terraform Provider from Articulate](https://github.com/articulate/terraform-provider-okta#building-the-provider)
+
+
+### Run Terraform
+
+Once you've installed Terraform, run the commands below *from the* `okta-vue-node-example` *directory*:
+
+Start by making a copy of the example Terraform `terraform.tfvars.example` file:
+
+``` bash
+cp terraform.tfvars.example terraform.tfvars
+```
+
+Next, [create and API token](https://developer.okta.com/docs/api/getting_started/getting_a_token/) for your Okta org.
+
+Then, using your favorite text editor, edit the `terraform.tfvars` file to relfect the settings for your Okta org.
+
+Once you've edited `terraform.tfvars`, you're ready to run Terraform. Start by having Terraform install the requisite plugins:
+
+```
+terraform init
+```
+
+Lastly, apply Okta configuration located in `setup.tf` by running this command:
 
 ```bash
-tf apply
+terraform apply
 ```
 
-This will get a copy of the project installed locally, and use Terraform to configure your Okta org for this app. To start each app, follow the instructions below.
+### Start the app
+At this point, you will have a copy of the project installed locally, and (thanks to Terraform) have your Okta org configured for this app. To start each app, follow the instructions below.
 
 To run the server:
 
