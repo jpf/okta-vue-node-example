@@ -31,6 +31,7 @@ This demo makes use of Terraform to automatically configure your Okta org for yo
 Make sure that you've done the following before going any further:
 - [Install Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html)
 - [Install Go](https://golang.org/doc/install)
+- [Install gox](https://github.com/mitchellh/gox#installation)
 - [Install the Okta Terraform Provider from Articulate](https://github.com/articulate/terraform-provider-okta#building-the-provider)
 
 
